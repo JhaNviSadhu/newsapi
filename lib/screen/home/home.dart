@@ -116,37 +116,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     (!_modelnews[index].isBookmarked);
                 setState(() {});
 
-                List<Article> userList = [];
+                List<Article> articalList = [];
 
                 if (getStringAsync(kbookmark).isNotEmpty) {
                   String strJsonUserList = getStringAsync(kbookmark);
                   print(strJsonUserList);
-                  userList = userModelFromJson(strJsonUserList);
-
-                  print(userList);
+                  articalList = userModelFromJson(strJsonUserList);
+                  print(articalList);
                 }
-
                 if (_modelnews[index].isBookmarked) {
-                  // append User in List
-                  userList.add(Article(
+                  articalList.add(Article(
                       title: _modelnews[index].title,
                       urlToImage: _modelnews[index].urlToImage));
                 } else {
-                  userList.removeWhere(
+                  articalList.removeWhere(
                       (element) => element.title == _modelnews[index].title);
                 }
-
-                print('=====================');
-                //   // // encode data
-                var json = userModelToJson(userList);
-                //   // var encodedData = jsonEncode(userList.toList());
-                //   // store List in pref
+                var json = userModelToJson(articalList);
                 setValue(kbookmark, json);
-                print('=====================');
-
-                var userdata2 = jsonDecode(getStringAsync(kbookmark));
-                print(userdata2);
-                print(' Final list of=====================');
               },
               child: Container(
                 decoration: const BoxDecoration(

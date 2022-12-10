@@ -28,7 +28,10 @@ class NewsController extends GetxController {
         .then((response) {
       ModelNewsList _modelnews = modelNewsListFromJson(response.data);
       if (_modelnews.status == "ok") {
-        List userdata2 = jsonDecode(getStringAsync(kbookmark));
+        dynamic userdata2 = getStringAsync(kbookmark);
+        if (userdata2 != '') {
+          userdata2 = jsonDecode(userdata2);
+        }
         if (userdata2.isNotEmpty) {
           _modelnews.articles?.forEach((element) {
             userdata2.forEach((inelement) {
@@ -39,17 +42,15 @@ class NewsController extends GetxController {
           });
         }
         isLoading.value = false;
-        print(_modelnews);
+
         newslist.value = _modelnews.articles ?? [];
         filterlist.value = _modelnews.articles ?? [];
       } else {
         isLoading.value = false;
-        print(_modelnews);
       }
     }).catchError((err) {
       // hideLoading();
       isLoading.value = false;
-      print(err);
     });
   }
 
@@ -65,27 +66,21 @@ class NewsController extends GetxController {
         .then((response) {
       ModelNewsList _modelnews = modelNewsListFromJson(response.data);
       if (_modelnews.status == "ok") {
-        print(_modelnews);
         headlineNewslist.value = _modelnews.articles ?? [];
         headlineNewslist.forEach((element) {
           var newContant = element.content?.split("[");
-          print(newContant);
+
           element.content = newContant?[0];
-          print(element.content);
         });
-      } else {
-        print(_modelnews);
       }
     }).catchError((err) {
       // hideLoading();
-
-      print(err);
     });
   }
 
   getBookmarked() {
     List userdata2 = jsonDecode(getStringAsync(kbookmark));
-    print(userdata2);
+
     bookmarkedlist.value = userdata2
         .map((e) => Article(
             title: e["title"], urlToImage: e["urlToImage"], isBookmarked: true))

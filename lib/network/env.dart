@@ -1,6 +1,5 @@
 const ENV env = ENV.dev;
 
-// setValue(apikey, "c6817e0442a2480185720574e93c2cbf");
 const String baseUrl = "https://newsapi.org/v2/";
 
 enum ENV { dev, qa, prod }

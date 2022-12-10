@@ -1,16 +1,32 @@
 # newsapi
 
-A new Flutter project.
+## Dark mode 
 
-## Getting Started
+//add screen short
 
-This project is a starting point for a Flutter application.
+## Light mode
 
-A few resources to get you started if this is your first Flutter project:
+//add screen short
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ability to read full artical on web page 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+// video
+
+## Search 
+
+// video
+
+## Bookmark 
+
+//video
+
+## Git Commit Conventions
+
+```dart
+- 🎉 :tada: initial commit 🎉
+- 🚀 :rocket: [Add] when implementing a new feature
+- 🔨 :hammer: [Fix] when fixing a bug or issue
+- 🎨 :art: [Refactor] when refactor/improving code
+- 🚧 :construction: [WIP]
+- 📝 :pencil: [Minor] Some small updates
+```

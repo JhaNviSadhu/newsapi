@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
 
 import '../theme/themeservice.dart';
 import '../utils/colors.dart';
 
 class ChangeThemeButtonWidget extends StatefulWidget {
-  ChangeThemeButtonWidget({Key? key}) : super(key: key);
+  const ChangeThemeButtonWidget({Key? key}) : super(key: key);
 
   @override
   State<ChangeThemeButtonWidget> createState() =>
@@ -33,7 +32,6 @@ class _ChangeThemeButtonWidgetState extends State<ChangeThemeButtonWidget> {
           themeController.saveTheme(true);
         }
         Future.delayed(const Duration(milliseconds: 150), () {
-          // Phoenix.rebirth(context);
           setState(() {});
         });
       },
